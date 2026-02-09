@@ -1,0 +1,16 @@
+#! /bin/bash
+set -o errexit -o pipefail -o nounset
+cd "$(dirname "$0")"
+
+(
+  echo 'Compiling...'
+  cd ../pnpm
+  pnpm ts-node __utils__/scripts/src/typecheck-only.ts
+  pnpm --filter=pnpm bundle
+)
+
+(
+  echo 'Copying...'
+  mkdir -pv ./pnpm-dist
+  cp -rv ../pnpm/pnpm/dist/* ./pnpm-dist
+)
