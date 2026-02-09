@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 24
       - name: Install dependencies
-        run: node ./dist/pnpm.mjs install
+        run: node ./pnpm-dist/pnpm.mjs install
       - name: Publish Packages
-        run: node ./dist/pnpm.mjs publish --provenance
+        run: node ./pnpm-dist/pnpm.mjs publish --provenance
 
