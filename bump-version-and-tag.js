@@ -10,5 +10,5 @@ fs.writeFileSync(
   JSON.stringify(manifest, undefined, 2) + '\n',
 )
 spawnSync('git', 'add', '-v', './package.json').exit.onerror()
-spawnSync('git', 'commit', '-v', '-m', manifest.version).exit.onerror()
+spawnSync('git', 'commit', '-m', manifest.version).exit.onerror()
 spawnSync('git', 'tag', `v${manifest.version}`).exit.onerror()
