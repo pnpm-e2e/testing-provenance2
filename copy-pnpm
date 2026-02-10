@@ -13,4 +13,7 @@ cd "$(dirname "$0")"
   echo 'Copying...'
   mkdir -pv ./pnpm-dist
   cp -rv ../pnpm/pnpm/dist/* ./pnpm-dist
+
+  echo 'Removing maps...'
+  rm -v ./pnpm-dist/*.map
 )
