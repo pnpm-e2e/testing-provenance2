@@ -2269,9 +2269,9 @@ var require_lib = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/rename-overwrite/6.0.2/5f3ac1c6c9da1d876f3bd14170eff997aecd496016e0b976f6a3d409c0c0f8d2/node_modules/rename-overwrite/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/rename-overwrite/6.0.3/b4ff636ccc6bf2c9e9f7e8aca35c8c8f2162cbf7880a216c3e1986052b7c8879/node_modules/rename-overwrite/index.js
 var require_rename_overwrite = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/rename-overwrite/6.0.2/5f3ac1c6c9da1d876f3bd14170eff997aecd496016e0b976f6a3d409c0c0f8d2/node_modules/rename-overwrite/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/rename-overwrite/6.0.3/b4ff636ccc6bf2c9e9f7e8aca35c8c8f2162cbf7880a216c3e1986052b7c8879/node_modules/rename-overwrite/index.js"(exports, module) {
     "use strict";
     var fs8 = __require("fs");
     var { copySync, copy } = require_lib();
@@ -2292,12 +2292,13 @@ var require_rename_overwrite = __commonJS({
             break;
           // Windows Antivirus issues
           case "EPERM":
-          case "EACCESS": {
+          case "EACCESS":
+          case "EBUSY": {
             await rimraf3(newPath);
             const start = Date.now();
             let backoff = 0;
             let lastError = err;
-            while (Date.now() - start < 6e4 && (lastError.code === "EPERM" || lastError.code === "EACCESS")) {
+            while (Date.now() - start < 6e4 && (lastError.code === "EPERM" || lastError.code === "EACCESS" || lastError.code === "EBUSY")) {
               await new Promise((resolve) => setTimeout(resolve, backoff));
               try {
                 await fs8.promises.rename(oldPath, newPath);
@@ -2348,12 +2349,13 @@ var require_rename_overwrite = __commonJS({
         switch (err.code) {
           // Windows Antivirus issues
           case "EPERM":
-          case "EACCESS": {
+          case "EACCESS":
+          case "EBUSY": {
             rimraf3.sync(newPath);
             const start = Date.now();
             let backoff = 0;
             let lastError = err;
-            while (Date.now() - start < 6e4 && (lastError.code === "EPERM" || lastError.code === "EACCESS")) {
+            while (Date.now() - start < 6e4 && (lastError.code === "EPERM" || lastError.code === "EACCESS" || lastError.code === "EBUSY")) {
               const waitUntil = Date.now() + backoff;
               while (waitUntil > Date.now()) {
               }
@@ -2609,9 +2611,9 @@ var require_individual = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/bole/5.0.17/0b558d8c78119d472b4f6e94a8cb5454b84e0e0c4a582355e66568f378b77396/node_modules/bole/format.js
+// ../../../.local/share/pnpm/store/v10/links/@/bole/5.0.27/b912a29caa645f224bd0bd70468eb3d872fdf34ce60d23ba3c683e9fd896363b/node_modules/bole/format.js
 var require_format = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/bole/5.0.17/0b558d8c78119d472b4f6e94a8cb5454b84e0e0c4a582355e66568f378b77396/node_modules/bole/format.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/bole/5.0.27/b912a29caa645f224bd0bd70468eb3d872fdf34ce60d23ba3c683e9fd896363b/node_modules/bole/format.js"(exports, module) {
     var utilformat = __require("util").format;
     function format(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16) {
       if (a16 !== void 0) {
@@ -2665,9 +2667,9 @@ var require_format = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/bole/5.0.17/0b558d8c78119d472b4f6e94a8cb5454b84e0e0c4a582355e66568f378b77396/node_modules/bole/bole.js
+// ../../../.local/share/pnpm/store/v10/links/@/bole/5.0.27/b912a29caa645f224bd0bd70468eb3d872fdf34ce60d23ba3c683e9fd896363b/node_modules/bole/bole.js
 var require_bole = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/bole/5.0.17/0b558d8c78119d472b4f6e94a8cb5454b84e0e0c4a582355e66568f378b77396/node_modules/bole/bole.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/bole/5.0.27/b912a29caa645f224bd0bd70468eb3d872fdf34ce60d23ba3c683e9fd896363b/node_modules/bole/bole.js"(exports, module) {
     "use strict";
     var _stringify = require_fast_safe_stringify();
     var individual = require_individual()("$$bole", { fastTime: false });
@@ -2969,9 +2971,9 @@ var require_split2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/fs/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/fs/index.js
 var require_fs2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/fs/index.js"(exports) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/fs/index.js"(exports) {
     "use strict";
     var u = require_universalify().fromCallback;
     var fs8 = require_graceful_fs();
@@ -3085,9 +3087,9 @@ var require_fs2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/mkdirs/utils.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/mkdirs/utils.js
 var require_utils3 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/mkdirs/utils.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/mkdirs/utils.js"(exports, module) {
     "use strict";
     var path12 = __require("path");
     module.exports.checkPath = function checkPath(pth) {
@@ -3103,9 +3105,9 @@ var require_utils3 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/mkdirs/make-dir.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/mkdirs/make-dir.js
 var require_make_dir2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/mkdirs/make-dir.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/mkdirs/make-dir.js"(exports, module) {
     "use strict";
     var fs8 = require_fs2();
     var { checkPath } = require_utils3();
@@ -3131,9 +3133,9 @@ var require_make_dir2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/mkdirs/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/mkdirs/index.js
 var require_mkdirs2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/mkdirs/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/mkdirs/index.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var { makeDir: _makeDir, makeDirSync } = require_make_dir2();
@@ -3150,9 +3152,9 @@ var require_mkdirs2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/path-exists/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/path-exists/index.js
 var require_path_exists2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/path-exists/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/path-exists/index.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var fs8 = require_fs2();
@@ -3166,9 +3168,9 @@ var require_path_exists2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/util/utimes.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/util/utimes.js
 var require_utimes2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/util/utimes.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/util/utimes.js"(exports, module) {
     "use strict";
     var fs8 = require_fs2();
     var u = require_universalify().fromPromise;
@@ -3200,9 +3202,9 @@ var require_utimes2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/util/stat.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/util/stat.js
 var require_stat2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/util/stat.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/util/stat.js"(exports, module) {
     "use strict";
     var fs8 = require_fs2();
     var path12 = __require("path");
@@ -3332,9 +3334,37 @@ var require_stat2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/copy/copy.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/util/async.js
+var require_async = __commonJS({
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/util/async.js"(exports, module) {
+    "use strict";
+    async function asyncIteratorConcurrentProcess(iterator, fn) {
+      const promises = [];
+      for await (const item of iterator) {
+        promises.push(
+          fn(item).then(
+            () => null,
+            (err) => err ?? new Error("unknown error")
+          )
+        );
+      }
+      await Promise.all(
+        promises.map(
+          (promise) => promise.then((possibleErr) => {
+            if (possibleErr !== null) throw possibleErr;
+          })
+        )
+      );
+    }
+    module.exports = {
+      asyncIteratorConcurrentProcess
+    };
+  }
+});
+
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/copy/copy.js
 var require_copy3 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/copy/copy.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/copy/copy.js"(exports, module) {
     "use strict";
     var fs8 = require_fs2();
     var path12 = __require("path");
@@ -3342,6 +3372,7 @@ var require_copy3 = __commonJS({
     var { pathExists } = require_path_exists2();
     var { utimesMillis } = require_utimes2();
     var stat = require_stat2();
+    var { asyncIteratorConcurrentProcess } = require_async();
     async function copy(src2, dest, opts2 = {}) {
       if (typeof opts2 === "function") {
         opts2 = { filter: opts2 };
@@ -3411,21 +3442,15 @@ var require_copy3 = __commonJS({
       if (!destStat) {
         await fs8.mkdir(dest);
       }
-      const promises = [];
-      for await (const item of await fs8.opendir(src2)) {
+      await asyncIteratorConcurrentProcess(await fs8.opendir(src2), async (item) => {
         const srcItem = path12.join(src2, item.name);
         const destItem = path12.join(dest, item.name);
-        promises.push(
-          runFilter(srcItem, destItem, opts2).then((include) => {
-            if (include) {
-              return stat.checkPaths(srcItem, destItem, "copy", opts2).then(({ destStat: destStat2 }) => {
-                return getStatsAndPerformCopy(destStat2, srcItem, destItem, opts2);
-              });
-            }
-          })
-        );
-      }
-      await Promise.all(promises);
+        const include = await runFilter(srcItem, destItem, opts2);
+        if (include) {
+          const { destStat: destStat2 } = await stat.checkPaths(srcItem, destItem, "copy", opts2);
+          await getStatsAndPerformCopy(destStat2, srcItem, destItem, opts2);
+        }
+      });
       if (!destStat) {
         await fs8.chmod(dest, srcStat.mode);
       }
@@ -3448,11 +3473,13 @@ var require_copy3 = __commonJS({
       if (opts2.dereference) {
         resolvedDest = path12.resolve(process.cwd(), resolvedDest);
       }
-      if (stat.isSrcSubdir(resolvedSrc, resolvedDest)) {
-        throw new Error(`Cannot copy '${resolvedSrc}' to a subdirectory of itself, '${resolvedDest}'.`);
-      }
-      if (stat.isSrcSubdir(resolvedDest, resolvedSrc)) {
-        throw new Error(`Cannot overwrite '${resolvedDest}' with '${resolvedSrc}'.`);
+      if (resolvedSrc !== resolvedDest) {
+        if (stat.isSrcSubdir(resolvedSrc, resolvedDest)) {
+          throw new Error(`Cannot copy '${resolvedSrc}' to a subdirectory of itself, '${resolvedDest}'.`);
+        }
+        if (stat.isSrcSubdir(resolvedDest, resolvedSrc)) {
+          throw new Error(`Cannot overwrite '${resolvedDest}' with '${resolvedSrc}'.`);
+        }
       }
       await fs8.unlink(dest);
       return fs8.symlink(resolvedSrc, dest);
@@ -3461,9 +3488,9 @@ var require_copy3 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/copy/copy-sync.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/copy/copy-sync.js
 var require_copy_sync2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/copy/copy-sync.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/copy/copy-sync.js"(exports, module) {
     "use strict";
     var fs8 = require_graceful_fs();
     var path12 = __require("path");
@@ -3580,11 +3607,13 @@ var require_copy_sync2 = __commonJS({
         if (opts2.dereference) {
           resolvedDest = path12.resolve(process.cwd(), resolvedDest);
         }
-        if (stat.isSrcSubdir(resolvedSrc, resolvedDest)) {
-          throw new Error(`Cannot copy '${resolvedSrc}' to a subdirectory of itself, '${resolvedDest}'.`);
-        }
-        if (stat.isSrcSubdir(resolvedDest, resolvedSrc)) {
-          throw new Error(`Cannot overwrite '${resolvedDest}' with '${resolvedSrc}'.`);
+        if (resolvedSrc !== resolvedDest) {
+          if (stat.isSrcSubdir(resolvedSrc, resolvedDest)) {
+            throw new Error(`Cannot copy '${resolvedSrc}' to a subdirectory of itself, '${resolvedDest}'.`);
+          }
+          if (stat.isSrcSubdir(resolvedDest, resolvedSrc)) {
+            throw new Error(`Cannot overwrite '${resolvedDest}' with '${resolvedSrc}'.`);
+          }
         }
         return copyLink(resolvedSrc, dest);
       }
@@ -3597,9 +3626,9 @@ var require_copy_sync2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/copy/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/copy/index.js
 var require_copy4 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/copy/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/copy/index.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     module.exports = {
@@ -3609,9 +3638,9 @@ var require_copy4 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/remove/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/remove/index.js
 var require_remove2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/remove/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/remove/index.js"(exports, module) {
     "use strict";
     var fs8 = require_graceful_fs();
     var u = require_universalify().fromCallback;
@@ -3628,9 +3657,9 @@ var require_remove2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/empty/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/empty/index.js
 var require_empty2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/empty/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/empty/index.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var fs8 = require_fs2();
@@ -3667,9 +3696,9 @@ var require_empty2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/file.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/file.js
 var require_file2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/file.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/file.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var path12 = __require("path");
@@ -3726,9 +3755,9 @@ var require_file2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/link.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/link.js
 var require_link2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/link.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/link.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var path12 = __require("path");
@@ -3783,9 +3812,9 @@ var require_link2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/symlink-paths.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/symlink-paths.js
 var require_symlink_paths2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/symlink-paths.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/symlink-paths.js"(exports, module) {
     "use strict";
     var path12 = __require("path");
     var fs8 = require_fs2();
@@ -3856,9 +3885,9 @@ var require_symlink_paths2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/symlink-type.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/symlink-type.js
 var require_symlink_type2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/symlink-type.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/symlink-type.js"(exports, module) {
     "use strict";
     var fs8 = require_fs2();
     var u = require_universalify().fromPromise;
@@ -3889,9 +3918,9 @@ var require_symlink_type2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/symlink.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/symlink.js
 var require_symlink2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/symlink.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/symlink.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var path12 = __require("path");
@@ -3950,9 +3979,9 @@ var require_symlink2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/index.js
 var require_ensure2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/ensure/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/ensure/index.js"(exports, module) {
     "use strict";
     var { createFile, createFileSync } = require_file2();
     var { createLink, createLinkSync } = require_link2();
@@ -3977,9 +4006,9 @@ var require_ensure2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/jsonfile.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/jsonfile.js
 var require_jsonfile3 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/jsonfile.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/jsonfile.js"(exports, module) {
     "use strict";
     var jsonFile = require_jsonfile();
     module.exports = {
@@ -3992,9 +4021,9 @@ var require_jsonfile3 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/output-file/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/output-file/index.js
 var require_output_file2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/output-file/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/output-file/index.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var fs8 = require_fs2();
@@ -4022,9 +4051,9 @@ var require_output_file2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/output-json.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/output-json.js
 var require_output_json2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/output-json.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/output-json.js"(exports, module) {
     "use strict";
     var { stringify } = require_utils2();
     var { outputFile } = require_output_file2();
@@ -4036,9 +4065,9 @@ var require_output_json2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/output-json-sync.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/output-json-sync.js
 var require_output_json_sync2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/output-json-sync.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/output-json-sync.js"(exports, module) {
     "use strict";
     var { stringify } = require_utils2();
     var { outputFileSync } = require_output_file2();
@@ -4050,9 +4079,9 @@ var require_output_json_sync2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/index.js
 var require_json2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/json/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/json/index.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     var jsonFile = require_jsonfile3();
@@ -4068,9 +4097,9 @@ var require_json2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/move/move.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/move/move.js
 var require_move3 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/move/move.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/move/move.js"(exports, module) {
     "use strict";
     var fs8 = require_fs2();
     var path12 = __require("path");
@@ -4120,9 +4149,9 @@ var require_move3 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/move/move-sync.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/move/move-sync.js
 var require_move_sync2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/move/move-sync.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/move/move-sync.js"(exports, module) {
     "use strict";
     var fs8 = require_graceful_fs();
     var path12 = __require("path");
@@ -4173,9 +4202,9 @@ var require_move_sync2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/move/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/move/index.js
 var require_move4 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/move/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/move/index.js"(exports, module) {
     "use strict";
     var u = require_universalify().fromPromise;
     module.exports = {
@@ -4185,9 +4214,9 @@ var require_move4 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/index.js
 var require_lib2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.1/0a6fab336111049ce5953e70729c9a539f12e0c5920996a914c32fba17982793/node_modules/fs-extra/lib/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/fs-extra/11.3.3/2949c838e718710ba2fdad76e7306a075b37e8dc8faa919c1d18551ae9133403/node_modules/fs-extra/lib/index.js"(exports, module) {
     "use strict";
     module.exports = {
       // Export promiseified graceful-fs:
@@ -4652,9 +4681,9 @@ var require_reflink = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.0.4/1f119f8f86dde21608f96a8c76437965be7db38047714482319e9daddc37e2b7/node_modules/detect-libc/lib/process.js
+// ../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/process.js
 var require_process = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.0.4/1f119f8f86dde21608f96a8c76437965be7db38047714482319e9daddc37e2b7/node_modules/detect-libc/lib/process.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/process.js"(exports, module) {
     "use strict";
     var isLinux = () => process.platform === "linux";
     var report = null;
@@ -4675,37 +4704,91 @@ var require_process = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.0.4/1f119f8f86dde21608f96a8c76437965be7db38047714482319e9daddc37e2b7/node_modules/detect-libc/lib/filesystem.js
+// ../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/filesystem.js
 var require_filesystem = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.0.4/1f119f8f86dde21608f96a8c76437965be7db38047714482319e9daddc37e2b7/node_modules/detect-libc/lib/filesystem.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/filesystem.js"(exports, module) {
     "use strict";
     var fs8 = __require("fs");
     var LDD_PATH = "/usr/bin/ldd";
-    var readFileSync = (path12) => fs8.readFileSync(path12, "utf-8");
+    var SELF_PATH = "/proc/self/exe";
+    var MAX_LENGTH = 2048;
+    var readFileSync = (path12) => {
+      const fd = fs8.openSync(path12, "r");
+      const buffer = Buffer.alloc(MAX_LENGTH);
+      const bytesRead = fs8.readSync(fd, buffer, 0, MAX_LENGTH, 0);
+      fs8.close(fd, () => {
+      });
+      return buffer.subarray(0, bytesRead);
+    };
     var readFile = (path12) => new Promise((resolve, reject) => {
-      fs8.readFile(path12, "utf-8", (err, data) => {
+      fs8.open(path12, "r", (err, fd) => {
         if (err) {
           reject(err);
         } else {
-          resolve(data);
+          const buffer = Buffer.alloc(MAX_LENGTH);
+          fs8.read(fd, buffer, 0, MAX_LENGTH, 0, (_, bytesRead) => {
+            resolve(buffer.subarray(0, bytesRead));
+            fs8.close(fd, () => {
+            });
+          });
         }
       });
     });
     module.exports = {
       LDD_PATH,
+      SELF_PATH,
       readFileSync,
       readFile
     };
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.0.4/1f119f8f86dde21608f96a8c76437965be7db38047714482319e9daddc37e2b7/node_modules/detect-libc/lib/detect-libc.js
+// ../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/elf.js
+var require_elf = __commonJS({
+  "../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/elf.js"(exports, module) {
+    "use strict";
+    var interpreterPath = (elf) => {
+      if (elf.length < 64) {
+        return null;
+      }
+      if (elf.readUInt32BE(0) !== 2135247942) {
+        return null;
+      }
+      if (elf.readUInt8(4) !== 2) {
+        return null;
+      }
+      if (elf.readUInt8(5) !== 1) {
+        return null;
+      }
+      const offset = elf.readUInt32LE(32);
+      const size = elf.readUInt16LE(54);
+      const count = elf.readUInt16LE(56);
+      for (let i = 0; i < count; i++) {
+        const headerOffset = offset + i * size;
+        const type = elf.readUInt32LE(headerOffset);
+        if (type === 3) {
+          const fileOffset = elf.readUInt32LE(headerOffset + 8);
+          const fileSize = elf.readUInt32LE(headerOffset + 32);
+          return elf.subarray(fileOffset, fileOffset + fileSize).toString().replace(/\0.*$/g, "");
+        }
+      }
+      return null;
+    };
+    module.exports = {
+      interpreterPath
+    };
+  }
+});
+
+// ../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/detect-libc.js
 var require_detect_libc = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.0.4/1f119f8f86dde21608f96a8c76437965be7db38047714482319e9daddc37e2b7/node_modules/detect-libc/lib/detect-libc.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/detect-libc/2.1.2/ca37fea2e5809a4da90e778e2cd5eabfb2b06b96348214e46697a7b6eede2c86/node_modules/detect-libc/lib/detect-libc.js"(exports, module) {
     "use strict";
     var childProcess = __require("child_process");
     var { isLinux, getReport } = require_process();
-    var { LDD_PATH, readFile, readFileSync } = require_filesystem();
+    var { LDD_PATH, SELF_PATH, readFile, readFileSync } = require_filesystem();
+    var { interpreterPath } = require_elf();
+    var cachedFamilyInterpreter;
     var cachedFamilyFilesystem;
     var cachedVersionFilesystem;
     var command = "getconf GNU_LIBC_VERSION 2>&1 || true; ldd --version 2>&1 || true";
@@ -4757,7 +4840,18 @@ var require_detect_libc = __commonJS({
       }
       return null;
     };
+    var familyFromInterpreterPath = (path12) => {
+      if (path12) {
+        if (path12.includes("/ld-musl-")) {
+          return MUSL;
+        } else if (path12.includes("/ld-linux-")) {
+          return GLIBC;
+        }
+      }
+      return null;
+    };
     var getFamilyFromLddContent = (content) => {
+      content = content.toString();
       if (content.includes("musl")) {
         return MUSL;
       }
@@ -4790,16 +4884,45 @@ var require_detect_libc = __commonJS({
       }
       return cachedFamilyFilesystem;
     };
+    var familyFromInterpreter = async () => {
+      if (cachedFamilyInterpreter !== void 0) {
+        return cachedFamilyInterpreter;
+      }
+      cachedFamilyInterpreter = null;
+      try {
+        const selfContent = await readFile(SELF_PATH);
+        const path12 = interpreterPath(selfContent);
+        cachedFamilyInterpreter = familyFromInterpreterPath(path12);
+      } catch (e) {
+      }
+      return cachedFamilyInterpreter;
+    };
+    var familyFromInterpreterSync = () => {
+      if (cachedFamilyInterpreter !== void 0) {
+        return cachedFamilyInterpreter;
+      }
+      cachedFamilyInterpreter = null;
+      try {
+        const selfContent = readFileSync(SELF_PATH);
+        const path12 = interpreterPath(selfContent);
+        cachedFamilyInterpreter = familyFromInterpreterPath(path12);
+      } catch (e) {
+      }
+      return cachedFamilyInterpreter;
+    };
     var family = async () => {
       let family2 = null;
       if (isLinux()) {
-        family2 = await familyFromFilesystem();
+        family2 = await familyFromInterpreter();
         if (!family2) {
-          family2 = familyFromReport();
-        }
-        if (!family2) {
-          const out = await safeCommand();
-          family2 = familyFromCommand(out);
+          family2 = await familyFromFilesystem();
+          if (!family2) {
+            family2 = familyFromReport();
+          }
+          if (!family2) {
+            const out = await safeCommand();
+            family2 = familyFromCommand(out);
+          }
         }
       }
       return family2;
@@ -4807,13 +4930,16 @@ var require_detect_libc = __commonJS({
     var familySync = () => {
       let family2 = null;
       if (isLinux()) {
-        family2 = familyFromFilesystemSync();
+        family2 = familyFromInterpreterSync();
         if (!family2) {
-          family2 = familyFromReport();
-        }
-        if (!family2) {
-          const out = safeCommandSync();
-          family2 = familyFromCommand(out);
+          family2 = familyFromFilesystemSync();
+          if (!family2) {
+            family2 = familyFromReport();
+          }
+          if (!family2) {
+            const out = safeCommandSync();
+            family2 = familyFromCommand(out);
+          }
         }
       }
       return family2;
@@ -4909,9 +5035,9 @@ var require_detect_libc = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/28884430bf0480cf9e225275634516b3d1409cf567d5f3e5533b4865019c36a5/node_modules/node-gyp-build-optional-packages/node-gyp-build.js
+// ../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/3f9d7fe4073b091f25634c4b54144bb2fb7c58495426da0961e39a72f4581c42/node_modules/node-gyp-build-optional-packages/node-gyp-build.js
 var require_node_gyp_build = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/28884430bf0480cf9e225275634516b3d1409cf567d5f3e5533b4865019c36a5/node_modules/node-gyp-build-optional-packages/node-gyp-build.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/3f9d7fe4073b091f25634c4b54144bb2fb7c58495426da0961e39a72f4581c42/node_modules/node-gyp-build-optional-packages/node-gyp-build.js"(exports, module) {
     var fs8 = __require("fs");
     var path12 = __require("path");
     var url = __require("url");
@@ -5106,9 +5232,9 @@ var require_node_gyp_build = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/28884430bf0480cf9e225275634516b3d1409cf567d5f3e5533b4865019c36a5/node_modules/node-gyp-build-optional-packages/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/3f9d7fe4073b091f25634c4b54144bb2fb7c58495426da0961e39a72f4581c42/node_modules/node-gyp-build-optional-packages/index.js
 var require_node_gyp_build_optional_packages = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/28884430bf0480cf9e225275634516b3d1409cf567d5f3e5533b4865019c36a5/node_modules/node-gyp-build-optional-packages/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/node-gyp-build-optional-packages/5.2.2/3f9d7fe4073b091f25634c4b54144bb2fb7c58495426da0961e39a72f4581c42/node_modules/node-gyp-build-optional-packages/index.js"(exports, module) {
     var runtimeRequire = typeof __webpack_require__ === "function" ? __non_webpack_require__ : __require;
     if (typeof runtimeRequire.addon === "function") {
       module.exports = runtimeRequire.addon.bind(runtimeRequire);
@@ -5118,154 +5244,22 @@ var require_node_gyp_build_optional_packages = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/msgpackr-extract/3.0.3/86b464d19b7b80ef2cd42dafda478bf87e334f757a77ab3a4812eaba7ecc0406/node_modules/msgpackr-extract/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/msgpackr-extract/3.0.3/795992a1e6207a441e76e71bcceb58169bcaf4e645969a30911c5069d0689e65/node_modules/msgpackr-extract/index.js
 var require_msgpackr_extract = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/msgpackr-extract/3.0.3/86b464d19b7b80ef2cd42dafda478bf87e334f757a77ab3a4812eaba7ecc0406/node_modules/msgpackr-extract/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/msgpackr-extract/3.0.3/795992a1e6207a441e76e71bcceb58169bcaf4e645969a30911c5069d0689e65/node_modules/msgpackr-extract/index.js"(exports, module) {
     module.exports = require_node_gyp_build_optional_packages()(__dirname);
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/rename-overwrite/6.0.3/b4ff636ccc6bf2c9e9f7e8aca35c8c8f2162cbf7880a216c3e1986052b7c8879/node_modules/rename-overwrite/index.js
-var require_rename_overwrite2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/rename-overwrite/6.0.3/b4ff636ccc6bf2c9e9f7e8aca35c8c8f2162cbf7880a216c3e1986052b7c8879/node_modules/rename-overwrite/index.js"(exports, module) {
-    "use strict";
-    var fs8 = __require("fs");
-    var { copySync, copy } = require_lib();
-    var path12 = __require("path");
-    var rimraf3 = require_rimraf();
-    module.exports = async function renameOverwrite4(oldPath, newPath, retry = 0) {
-      try {
-        await fs8.promises.rename(oldPath, newPath);
-      } catch (err) {
-        retry++;
-        if (retry > 3) throw err;
-        switch (err.code) {
-          case "ENOTEMPTY":
-          case "EEXIST":
-          case "ENOTDIR":
-            await rimraf3(newPath);
-            await renameOverwrite4(oldPath, newPath, retry);
-            break;
-          // Windows Antivirus issues
-          case "EPERM":
-          case "EACCESS":
-          case "EBUSY": {
-            await rimraf3(newPath);
-            const start = Date.now();
-            let backoff = 0;
-            let lastError = err;
-            while (Date.now() - start < 6e4 && (lastError.code === "EPERM" || lastError.code === "EACCESS" || lastError.code === "EBUSY")) {
-              await new Promise((resolve) => setTimeout(resolve, backoff));
-              try {
-                await fs8.promises.rename(oldPath, newPath);
-                return;
-              } catch (err2) {
-                lastError = err2;
-              }
-              if (backoff < 100) {
-                backoff += 10;
-              }
-            }
-            throw lastError;
-          }
-          case "ENOENT":
-            try {
-              await fs8.promises.stat(oldPath);
-            } catch (statErr) {
-              if (statErr.code === "ENOENT") {
-                throw statErr;
-              }
-            }
-            await fs8.promises.mkdir(path12.dirname(newPath), { recursive: true });
-            await renameOverwrite4(oldPath, newPath, retry);
-            break;
-          // Crossing filesystem boundaries so rename is not available
-          case "EXDEV":
-            try {
-              await rimraf3(newPath);
-            } catch (rimrafErr) {
-              if (rimrafErr.code !== "ENOENT") {
-                throw rimrafErr;
-              }
-            }
-            await copy(oldPath, newPath);
-            await rimraf3(oldPath);
-            break;
-          default:
-            throw err;
-        }
-      }
-    };
-    module.exports.sync = function renameOverwriteSync(oldPath, newPath, retry = 0) {
-      try {
-        fs8.renameSync(oldPath, newPath);
-      } catch (err) {
-        retry++;
-        if (retry > 3) throw err;
-        switch (err.code) {
-          // Windows Antivirus issues
-          case "EPERM":
-          case "EACCESS":
-          case "EBUSY": {
-            rimraf3.sync(newPath);
-            const start = Date.now();
-            let backoff = 0;
-            let lastError = err;
-            while (Date.now() - start < 6e4 && (lastError.code === "EPERM" || lastError.code === "EACCESS" || lastError.code === "EBUSY")) {
-              const waitUntil = Date.now() + backoff;
-              while (waitUntil > Date.now()) {
-              }
-              try {
-                fs8.renameSync(oldPath, newPath);
-                return;
-              } catch (err2) {
-                lastError = err2;
-              }
-              if (backoff < 100) {
-                backoff += 10;
-              }
-            }
-            throw lastError;
-          }
-          case "ENOTEMPTY":
-          case "EEXIST":
-          case "ENOTDIR":
-            rimraf3.sync(newPath);
-            fs8.renameSync(oldPath, newPath);
-            return;
-          case "ENOENT":
-            fs8.mkdirSync(path12.dirname(newPath), { recursive: true });
-            renameOverwriteSync(oldPath, newPath, retry);
-            return;
-          // Crossing filesystem boundaries so rename is not available
-          case "EXDEV":
-            try {
-              rimraf3.sync(newPath);
-            } catch (rimrafErr) {
-              if (rimrafErr.code !== "ENOENT") {
-                throw rimrafErr;
-              }
-            }
-            copySync(oldPath, newPath);
-            rimraf3.sync(oldPath);
-            break;
-          default:
-            throw err;
-        }
-      }
-    };
-  }
-});
-
-// ../../../.local/share/pnpm/store/v10/links/@/symlink-dir/7.0.0/c1641d5c0846d1f7579a38fa41dc0945856e770bfd3fd940fb19354db93ebb82/node_modules/symlink-dir/dist/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/symlink-dir/7.1.0/3702a63a3638c3ead1d22dffdb7a950fa2f0d850cbe32dbf61e8afadeb40e3ee/node_modules/symlink-dir/dist/index.js
 var require_dist = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/symlink-dir/7.0.0/c1641d5c0846d1f7579a38fa41dc0945856e770bfd3fd940fb19354db93ebb82/node_modules/symlink-dir/dist/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/symlink-dir/7.1.0/3702a63a3638c3ead1d22dffdb7a950fa2f0d850cbe32dbf61e8afadeb40e3ee/node_modules/symlink-dir/dist/index.js"(exports, module) {
     "use strict";
     var betterPathResolve = require_better_path_resolve();
     var fs_1 = __require("fs");
     var util8 = __require("util");
     var pathLib = __require("path");
-    var renameOverwrite4 = require_rename_overwrite2();
+    var renameOverwrite4 = require_rename_overwrite();
     var IS_WINDOWS = process.platform === "win32" || /^(msys|cygwin)$/.test(process.env.OSTYPE);
     function resolveSrcOnWinJunction(src2) {
       return `${src2}\\`;
@@ -5336,7 +5330,11 @@ var require_dist = __commonJS({
     async function forceSymlink(target2, path12, opts2) {
       let initialErr;
       try {
-        await createSymlinkAsync(target2, path12);
+        if ((opts2 === null || opts2 === void 0 ? void 0 : opts2.noJunction) === true) {
+          await createTrueSymlinkAsync(target2, path12);
+        } else {
+          await createSymlinkAsync(target2, path12);
+        }
         return { reused: false };
       } catch (err) {
         switch (err.code) {
@@ -5415,7 +5413,11 @@ var require_dist = __commonJS({
     function forceSymlinkSync(target2, path12, opts2) {
       let initialErr;
       try {
-        createSymlinkSync(target2, path12);
+        if ((opts2 === null || opts2 === void 0 ? void 0 : opts2.noJunction) === true) {
+          createTrueSymlinkSync(target2, path12);
+        } else {
+          createSymlinkSync(target2, path12);
+        }
         return { reused: false };
       } catch (err) {
         initialErr = err;
@@ -5484,9 +5486,9 @@ var require_dist = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/constants.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/constants.js
 var require_constants = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/constants.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/constants.js"(exports, module) {
     "use strict";
     var SEMVER_SPEC_VERSION = "2.0.0";
     var MAX_LENGTH = 256;
@@ -5516,9 +5518,9 @@ var require_constants = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/debug.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/debug.js
 var require_debug = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/debug.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/debug.js"(exports, module) {
     "use strict";
     var debug = typeof process === "object" && process.env && process.env.NODE_DEBUG && /\bsemver\b/i.test(process.env.NODE_DEBUG) ? (...args) => console.error("SEMVER", ...args) : () => {
     };
@@ -5526,9 +5528,9 @@ var require_debug = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/re.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/re.js
 var require_re = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/re.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/re.js"(exports, module) {
     "use strict";
     var {
       MAX_SAFE_COMPONENT_LENGTH,
@@ -5614,9 +5616,9 @@ var require_re = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/parse-options.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/parse-options.js
 var require_parse_options = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/parse-options.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/parse-options.js"(exports, module) {
     "use strict";
     var looseOption = Object.freeze({ loose: true });
     var emptyOpts = Object.freeze({});
@@ -5633,12 +5635,15 @@ var require_parse_options = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/identifiers.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/identifiers.js
 var require_identifiers = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/identifiers.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/identifiers.js"(exports, module) {
     "use strict";
     var numeric = /^[0-9]+$/;
     var compareIdentifiers = (a, b) => {
+      if (typeof a === "number" && typeof b === "number") {
+        return a === b ? 0 : a < b ? -1 : 1;
+      }
       const anum = numeric.test(a);
       const bnum = numeric.test(b);
       if (anum && bnum) {
@@ -5655,9 +5660,9 @@ var require_identifiers = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/classes/semver.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/classes/semver.js
 var require_semver = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/classes/semver.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/classes/semver.js"(exports, module) {
     "use strict";
     var debug = require_debug();
     var { MAX_LENGTH, MAX_SAFE_INTEGER } = require_constants();
@@ -5745,7 +5750,25 @@ var require_semver = __commonJS({
         if (!(other instanceof _SemVer)) {
           other = new _SemVer(other, this.options);
         }
-        return compareIdentifiers(this.major, other.major) || compareIdentifiers(this.minor, other.minor) || compareIdentifiers(this.patch, other.patch);
+        if (this.major < other.major) {
+          return -1;
+        }
+        if (this.major > other.major) {
+          return 1;
+        }
+        if (this.minor < other.minor) {
+          return -1;
+        }
+        if (this.minor > other.minor) {
+          return 1;
+        }
+        if (this.patch < other.patch) {
+          return -1;
+        }
+        if (this.patch > other.patch) {
+          return 1;
+        }
+        return 0;
       }
       comparePre(other) {
         if (!(other instanceof _SemVer)) {
@@ -5916,9 +5939,9 @@ var require_semver = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/parse.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/parse.js
 var require_parse = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/parse.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/parse.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var parse2 = (version, options, throwErrors = false) => {
@@ -5938,9 +5961,9 @@ var require_parse = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/valid.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/valid.js
 var require_valid = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/valid.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/valid.js"(exports, module) {
     "use strict";
     var parse2 = require_parse();
     var valid = (version, options) => {
@@ -5951,9 +5974,9 @@ var require_valid = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/clean.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/clean.js
 var require_clean = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/clean.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/clean.js"(exports, module) {
     "use strict";
     var parse2 = require_parse();
     var clean = (version, options) => {
@@ -5964,9 +5987,9 @@ var require_clean = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/inc.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/inc.js
 var require_inc = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/inc.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/inc.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var inc = (version, release, options, identifier, identifierBase) => {
@@ -5988,9 +6011,9 @@ var require_inc = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/diff.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/diff.js
 var require_diff = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/diff.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/diff.js"(exports, module) {
     "use strict";
     var parse2 = require_parse();
     var diff = (version1, version2) => {
@@ -6032,9 +6055,9 @@ var require_diff = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/major.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/major.js
 var require_major = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/major.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/major.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var major = (a, loose) => new SemVer(a, loose).major;
@@ -6042,9 +6065,9 @@ var require_major = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/minor.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/minor.js
 var require_minor = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/minor.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/minor.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var minor = (a, loose) => new SemVer(a, loose).minor;
@@ -6052,9 +6075,9 @@ var require_minor = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/patch.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/patch.js
 var require_patch = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/patch.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/patch.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var patch = (a, loose) => new SemVer(a, loose).patch;
@@ -6062,9 +6085,9 @@ var require_patch = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/prerelease.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/prerelease.js
 var require_prerelease = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/prerelease.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/prerelease.js"(exports, module) {
     "use strict";
     var parse2 = require_parse();
     var prerelease = (version, options) => {
@@ -6075,9 +6098,9 @@ var require_prerelease = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/compare.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/compare.js
 var require_compare = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/compare.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/compare.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var compare = (a, b, loose) => new SemVer(a, loose).compare(new SemVer(b, loose));
@@ -6085,9 +6108,9 @@ var require_compare = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/rcompare.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/rcompare.js
 var require_rcompare = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/rcompare.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/rcompare.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var rcompare = (a, b, loose) => compare(b, a, loose);
@@ -6095,9 +6118,9 @@ var require_rcompare = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/compare-loose.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/compare-loose.js
 var require_compare_loose = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/compare-loose.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/compare-loose.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var compareLoose = (a, b) => compare(a, b, true);
@@ -6105,9 +6128,9 @@ var require_compare_loose = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/compare-build.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/compare-build.js
 var require_compare_build = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/compare-build.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/compare-build.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var compareBuild = (a, b, loose) => {
@@ -6119,9 +6142,9 @@ var require_compare_build = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/sort.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/sort.js
 var require_sort = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/sort.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/sort.js"(exports, module) {
     "use strict";
     var compareBuild = require_compare_build();
     var sort = (list, loose) => list.sort((a, b) => compareBuild(a, b, loose));
@@ -6129,9 +6152,9 @@ var require_sort = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/rsort.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/rsort.js
 var require_rsort = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/rsort.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/rsort.js"(exports, module) {
     "use strict";
     var compareBuild = require_compare_build();
     var rsort = (list, loose) => list.sort((a, b) => compareBuild(b, a, loose));
@@ -6139,9 +6162,9 @@ var require_rsort = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/gt.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/gt.js
 var require_gt = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/gt.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/gt.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var gt = (a, b, loose) => compare(a, b, loose) > 0;
@@ -6149,9 +6172,9 @@ var require_gt = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/lt.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/lt.js
 var require_lt = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/lt.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/lt.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var lt = (a, b, loose) => compare(a, b, loose) < 0;
@@ -6159,9 +6182,9 @@ var require_lt = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/eq.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/eq.js
 var require_eq = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/eq.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/eq.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var eq = (a, b, loose) => compare(a, b, loose) === 0;
@@ -6169,9 +6192,9 @@ var require_eq = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/neq.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/neq.js
 var require_neq = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/neq.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/neq.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var neq = (a, b, loose) => compare(a, b, loose) !== 0;
@@ -6179,9 +6202,9 @@ var require_neq = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/gte.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/gte.js
 var require_gte = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/gte.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/gte.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var gte = (a, b, loose) => compare(a, b, loose) >= 0;
@@ -6189,9 +6212,9 @@ var require_gte = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/lte.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/lte.js
 var require_lte = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/lte.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/lte.js"(exports, module) {
     "use strict";
     var compare = require_compare();
     var lte = (a, b, loose) => compare(a, b, loose) <= 0;
@@ -6199,9 +6222,9 @@ var require_lte = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/cmp.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/cmp.js
 var require_cmp = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/cmp.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/cmp.js"(exports, module) {
     "use strict";
     var eq = require_eq();
     var neq = require_neq();
@@ -6249,9 +6272,9 @@ var require_cmp = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/coerce.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/coerce.js
 var require_coerce = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/coerce.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/coerce.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var parse2 = require_parse();
@@ -6295,9 +6318,9 @@ var require_coerce = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/lrucache.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/lrucache.js
 var require_lrucache = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/internal/lrucache.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/internal/lrucache.js"(exports, module) {
     "use strict";
     var LRUCache = class {
       constructor() {
@@ -6333,9 +6356,9 @@ var require_lrucache = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/classes/range.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/classes/range.js
 var require_range = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/classes/range.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/classes/range.js"(exports, module) {
     "use strict";
     var SPACE_CHARACTERS = /\s+/g;
     var Range = class _Range {
@@ -6506,6 +6529,7 @@ var require_range = __commonJS({
       return result;
     };
     var parseComparator = (comp, options) => {
+      comp = comp.replace(re[t.BUILD], "");
       debug("comp", comp, options);
       comp = replaceCarets(comp, options);
       debug("caret", comp);
@@ -6709,9 +6733,9 @@ var require_range = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/classes/comparator.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/classes/comparator.js
 var require_comparator = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/classes/comparator.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/classes/comparator.js"(exports, module) {
     "use strict";
     var ANY = Symbol("SemVer ANY");
     var Comparator = class _Comparator {
@@ -6822,9 +6846,9 @@ var require_comparator = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/satisfies.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/satisfies.js
 var require_satisfies = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/functions/satisfies.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/functions/satisfies.js"(exports, module) {
     "use strict";
     var Range = require_range();
     var satisfies = (version, range, options) => {
@@ -6839,9 +6863,9 @@ var require_satisfies = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/to-comparators.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/to-comparators.js
 var require_to_comparators = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/to-comparators.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/to-comparators.js"(exports, module) {
     "use strict";
     var Range = require_range();
     var toComparators = (range, options) => new Range(range, options).set.map((comp) => comp.map((c) => c.value).join(" ").trim().split(" "));
@@ -6849,9 +6873,9 @@ var require_to_comparators = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/max-satisfying.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/max-satisfying.js
 var require_max_satisfying = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/max-satisfying.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/max-satisfying.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var Range = require_range();
@@ -6878,9 +6902,9 @@ var require_max_satisfying = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/min-satisfying.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/min-satisfying.js
 var require_min_satisfying = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/min-satisfying.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/min-satisfying.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var Range = require_range();
@@ -6907,9 +6931,9 @@ var require_min_satisfying = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/min-version.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/min-version.js
 var require_min_version = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/min-version.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/min-version.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var Range = require_range();
@@ -6966,9 +6990,9 @@ var require_min_version = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/valid.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/valid.js
 var require_valid2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/valid.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/valid.js"(exports, module) {
     "use strict";
     var Range = require_range();
     var validRange = (range, options) => {
@@ -6982,9 +7006,9 @@ var require_valid2 = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/outside.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/outside.js
 var require_outside = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/outside.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/outside.js"(exports, module) {
     "use strict";
     var SemVer = require_semver();
     var Comparator = require_comparator();
@@ -7051,9 +7075,9 @@ var require_outside = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/gtr.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/gtr.js
 var require_gtr = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/gtr.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/gtr.js"(exports, module) {
     "use strict";
     var outside = require_outside();
     var gtr = (version, range, options) => outside(version, range, ">", options);
@@ -7061,9 +7085,9 @@ var require_gtr = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/ltr.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/ltr.js
 var require_ltr = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/ltr.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/ltr.js"(exports, module) {
     "use strict";
     var outside = require_outside();
     var ltr = (version, range, options) => outside(version, range, "<", options);
@@ -7071,9 +7095,9 @@ var require_ltr = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/intersects.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/intersects.js
 var require_intersects = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/intersects.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/intersects.js"(exports, module) {
     "use strict";
     var Range = require_range();
     var intersects = (r1, r2, options) => {
@@ -7085,9 +7109,9 @@ var require_intersects = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/simplify.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/simplify.js
 var require_simplify = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/simplify.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/simplify.js"(exports, module) {
     "use strict";
     var satisfies = require_satisfies();
     var compare = require_compare();
@@ -7135,9 +7159,9 @@ var require_simplify = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/subset.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/subset.js
 var require_subset = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/ranges/subset.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/ranges/subset.js"(exports, module) {
     "use strict";
     var Range = require_range();
     var Comparator = require_comparator();
@@ -7297,9 +7321,9 @@ var require_subset = __commonJS({
   }
 });
 
-// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/index.js
+// ../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/index.js
 var require_semver2 = __commonJS({
-  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.2/86902ed6f66d1d3ed422a79af92d085860c58d72714670888f3639cc75de6f0b/node_modules/semver/index.js"(exports, module) {
+  "../../../.local/share/pnpm/store/v10/links/@/semver/7.7.4/d72ffda551d0324042cb409e7e160c5e76020a8eb50da5efc56c1d0594ec57ca/node_modules/semver/index.js"(exports, module) {
     "use strict";
     var internalRe = require_re();
     var constants2 = require_constants();
@@ -8861,7 +8885,7 @@ function linkOrCopy2(srcFile, destFile) {
   }
 }
 
-// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/fa1e0559f197fee8478659a989f441927184ac384813f709c00ba8e06a1533c9/node_modules/msgpackr/unpack.js
+// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/0875b428e6dcdce454b00b51ae617c4c67d6a103d0b94883cf3ac21abfa31f11/node_modules/msgpackr/unpack.js
 var decoder;
 try {
   decoder = new TextDecoder();
@@ -9978,7 +10002,7 @@ function setReadStruct(updatedReadStruct, loadedStructs, saveState3) {
   onSaveState = saveState3;
 }
 
-// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/fa1e0559f197fee8478659a989f441927184ac384813f709c00ba8e06a1533c9/node_modules/msgpackr/pack.js
+// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/0875b428e6dcdce454b00b51ae617c4c67d6a103d0b94883cf3ac21abfa31f11/node_modules/msgpackr/pack.js
 var textEncoder;
 try {
   textEncoder = new TextEncoder();
@@ -11044,7 +11068,7 @@ var REUSE_BUFFER_MODE = 512;
 var RESET_BUFFER_MODE = 1024;
 var RESERVE_START_SPACE = 2048;
 
-// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/fa1e0559f197fee8478659a989f441927184ac384813f709c00ba8e06a1533c9/node_modules/msgpackr/struct.js
+// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/0875b428e6dcdce454b00b51ae617c4c67d6a103d0b94883cf3ac21abfa31f11/node_modules/msgpackr/struct.js
 var ASCII = 3;
 var NUMBER = 0;
 var UTF8 = 2;
@@ -11761,7 +11785,7 @@ function prepareStructures2(structures, packr2) {
 }
 setReadStruct(readStruct2, onLoadedStructures2, saveState2);
 
-// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/fa1e0559f197fee8478659a989f441927184ac384813f709c00ba8e06a1533c9/node_modules/msgpackr/node-index.js
+// ../../../.local/share/pnpm/store/v10/links/@/msgpackr/1.11.8/0875b428e6dcdce454b00b51ae617c4c67d6a103d0b94883cf3ac21abfa31f11/node_modules/msgpackr/node-index.js
 import { createRequire } from "module";
 var nativeAccelerationDisabled = process.env.MSGPACKR_NATIVE_ACCELERATION_DISABLED !== void 0 && process.env.MSGPACKR_NATIVE_ACCELERATION_DISABLED.toLowerCase() === "true";
 if (!nativeAccelerationDisabled) {
