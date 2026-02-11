@@ -22,5 +22,5 @@ jobs:
       - name: Install dependencies
         run: node ./pnpm-dist/pnpm.mjs install
       - name: Publish Packages
-        run: node ./pnpm-dist/pnpm.mjs publish --provenance --no-git-checks
+        run: node ./pnpm-dist/pnpm.mjs publish --no-git-checks
 
